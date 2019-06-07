@@ -1,6 +1,6 @@
 # jupyter-quick-install
-Jupyter and Ngnix Install script for AWS with Docker
 
+Docker + Jupyter + Ngnix + .htaccess in one command line
 
 
 ### Contexte :
@@ -12,14 +12,22 @@ Pour la préparation d'un TP universitaire en machine learning, je souhaite conf
 * une instance AWS avec un Ubuntu LTS 64bits
 
 
-###  Installation et configuration en une ligne de commande
+###  Installation 
 
 
-Connectez vous au shell de copier coller cette ligne
+Step 1 - make the instance
+
+	on AWS -> t2.micro (Ubuntu) 
+
+
+Step 2
 
         sudo wget -O - https://raw.githubusercontent.com/jcnade/jupyter-quick-install/master/install.sh | bash
 
-       
+Step 3
+
+
+
 
 
 
