@@ -150,14 +150,16 @@ niceTitle "Docker+Instance"
 sudo docker ps
 
 
+
+
 #
-# Get your secret ticken
+# Get your secret tkcken
 #
 
-niceTitle "Save+Me"
+niceTitle "Your+Token"
 
 echo "sudo docker exec $ID jupyter notebook list"
-TOKEN=(sudo docker exec $ID jupyter notebook list)
+TOKEN=$(sudo docker exec $ID jupyter notebook list)
 echo $TOKEN | sed "s/0.0.0.0/$IP/g"
 
 
