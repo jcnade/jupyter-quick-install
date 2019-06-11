@@ -42,7 +42,7 @@ sudo ufw allow 8888
 sudo ufw allow 80
 sudo ufw allow ssh
 sudo ufw allow 'Nginx HTTP'
-sudo ufw enable
+sudo ufw --force enable
 sudo ufw status
 
 #
