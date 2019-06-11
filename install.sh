@@ -8,15 +8,21 @@ echo ""
 # first, some basic update and upgrade
 #
 
-
-
-echo "==[ Update & Upgrade ]======================================================"
+echo ""
+echo "==[ Update ]======================================================"
 curl http://artii.herokuapp.com/make?text=Update
-
 
 sudo apt-get update -y
 
+
+#
+# Upgrade
+#
+
+echo ""
+echo "==[ upgrade ]======================================================"
 http://artii.herokuapp.com/make?text=Upgrade
+
  sudo apt-get upgrade -y
 
 #
