@@ -5,9 +5,14 @@
 # first, some basic update and upgrade
 #
 
-echo "==[ Update & Upgrade ]======================================================"
 
- sudo apt-get update -y
+echo "==[ Update & Upgrade ]======================================================"
+curl http://artii.herokuapp.com/make?text=Update
+
+
+sudo apt-get update -y
+
+http://artii.herokuapp.com/make?text=Upgrade
  sudo apt-get upgrade -y
 
 #
@@ -15,6 +20,8 @@ echo "==[ Update & Upgrade ]====================================================
 #
 
 echo "==[ FireWall Config ]======================================================"
+curl http://artii.herokuapp.com/make?text=FireWall
+
 
 sudo ufw status
 sudo ufw default allow
