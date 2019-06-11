@@ -160,6 +160,7 @@ niceTitle "Your+Token"
 
 echo "sudo docker exec $ID jupyter notebook list"
 TOKEN=$(sudo docker exec $ID jupyter notebook list)
+echo $TOKEN
 echo $TOKEN | sed "s/0.0.0.0/$IP/g"
 
 
