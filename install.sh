@@ -19,6 +19,7 @@ http://artii.herokuapp.com/make?text=Upgrade
 # FireWall
 #
 
+echo ""
 echo "==[ FireWall Config ]======================================================"
 curl http://artii.herokuapp.com/make?text=FireWall
 
@@ -38,13 +39,17 @@ sudo ufw status
 # ngnix
 #
 
+echo ""
 echo "==[ nginx Config ]======================================================"
+curl http://artii.herokuapp.com/make?text=ngnix
 
 sudo apt-get install nginx -y
+
 
 IP=$(curl http://checkip.amazonaws.com);
 
 echo "Server IP is $IP"
+curl http://artii.herokuapp.com/make?text=$IP
 
 
 
@@ -52,6 +57,7 @@ echo "Server IP is $IP"
 # we need docker
 #
 echo "==[ Docker Install ]======================================================"
+curl http://artii.herokuapp.com/make?text=DOCKER
 
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -82,6 +88,8 @@ echo "==[ getting docker ID ]===================================================
 
 ID=$(sudo docker ps -a -q)
 echo "Docker is is $ID"
+curl http://artii.herokuapp.com/make?text=$ID
+
 
 
 
