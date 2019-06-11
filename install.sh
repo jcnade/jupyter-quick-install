@@ -1,9 +1,13 @@
 #!/bin/sh
 
 
+curl http://artii.herokuapp.com/make?text=Jupyter+Quick+Install
+echo ""
+
 #
 # first, some basic update and upgrade
 #
+
 
 
 echo "==[ Update & Upgrade ]======================================================"
