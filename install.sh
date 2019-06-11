@@ -136,6 +136,7 @@ echo "----------------------------"
 #sudo docker ps -a
 echo "=================================================="
 echo "YOUR SECRET TOKEN"
+echo 'docker exec $ID jupyter notebook list'
 sudo docker exec $ID jupyter notebook list
 echo "=================================================="
 
