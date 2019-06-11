@@ -81,15 +81,19 @@ sudo apt-get install nginx -y
 # get IP
 #
 
+niceTitle "get+IP"
+
 IP=$(curl http://checkip.amazonaws.com);
 
 echo ""
 echo "Server IP is $IP" 
-curl http://artii.herokuapp.com/make?text=$IP
 echo ""
 
 
 
+#
+# get Docker
+#
 
 niceTitle "docker"
 
@@ -133,11 +137,22 @@ niceTitle "Lanching+pyspark+notebook"
 
 sudo docker run -d -p 8888:8888 jupyter/pyspark-notebook
 
-# get docket ID
+
+
+#
+# We need the docker Id
+#
+
+niceTitle "get+Docker+ID"
+
 ID=$(sudo docker ps -a -q)
-echo "----------------------------"
-echo "Docker ID is $ID"
-echo "----------------------------"
+echo ""
+echo "*************** Docker ID is $ID"
+echo ""
+echo $ID
+echo ""
+
+
 
 
 
@@ -153,15 +168,21 @@ sudo docker ps
 
 
 #
-# Get your secret tkcken
+# Get your secret Token
 #
 
 niceTitle "Your+Token"
 
+echo "server IP : $IP"
+echo "docker ID : $ID"
+echo ""
 echo "sudo docker exec $ID jupyter notebook list"
 TOKEN=$(sudo docker exec $ID jupyter notebook list)
-echo $TOKEN
+echo "Jupyter Token is $TOKEN"
+echo "===================================="
 echo $TOKEN | sed "s/0.0.0.0/$IP/g"
+echo "===================================="
+
 
 
 #
