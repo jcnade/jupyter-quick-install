@@ -101,6 +101,9 @@ niceTitle "docker"
 sudo docker stop $(sudo docker ps -a -q)
 sudo docker rm $(sudo docker ps -a -q)
 
+sudo docker stop $(sudo docker ps -a -q)
+sudo docker rm $(sudo docker ps -a -q)
+
 
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -149,8 +152,7 @@ niceTitle "Save+Me"
 
 echo "sudo docker exec $ID jupyter notebook list"
 TOKEN=(sudo docker exec $ID jupyter notebook list)
-URL=${$TOKEN/'0.0.0.0'/$IP}
-echo $URL
+echo $TOKEN | sed "s/0.0.0.0/$IP/g"
 
 
 #
