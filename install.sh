@@ -149,8 +149,8 @@ niceTitle "Save+Me"
 
 echo "sudo docker exec $ID jupyter notebook list"
 TOKEN=(sudo docker exec $ID jupyter notebook list)
-echo $TOKEN
-
+URL=${$TOKEN/'0.0.0.0'/$IP}
+echo $URL
 
 
 #
