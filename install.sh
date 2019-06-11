@@ -148,7 +148,7 @@ sudo docker ps
 niceTitle "Save+Me"
 
 echo "sudo docker exec $ID jupyter notebook list"
-sudo sudo docker exec $ID jupyter notebook list
+sudo docker exec $ID jupyter notebook list
 
 
 #
