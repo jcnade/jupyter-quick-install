@@ -130,15 +130,25 @@ echo "----------------------------"
 echo "Docker ID is $ID"
 echo "----------------------------"
 
+
+
 #
-# get Docker Secret Toker
+# Show list of running docker instance
 #
-#sudo docker ps -a
-echo "=================================================="
-echo "YOUR SECRET TOKEN"
-echo 'docker exec $ID jupyter notebook list'
+
+niceTitle "Docker+Instance"
+
+sudo docker ps
+
+
+#
+# Get your secret ticken
+#
+
+niceTitle "Save+Me"
+
+echo "docker exec $ID jupyter notebook list"
 sudo docker exec $ID jupyter notebook list
-echo "=================================================="
 
 #
 # READ ME (last Step Instruction)
