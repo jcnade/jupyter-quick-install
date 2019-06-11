@@ -24,7 +24,7 @@ echo ""
 # first, some basic update and upgrade
 #
 
-niceTitle("update")
+niceTitle "update"
 
 sudo apt-get update -y
 
@@ -33,7 +33,7 @@ sudo apt-get update -y
 # Upgrade
 #
 
-niceTitle("upgrade")
+niceTitle "upgrade"
 
 sudo apt-get upgrade -y
 
@@ -41,10 +41,7 @@ sudo apt-get upgrade -y
 # FireWall
 #
 
-echo ""
-echo "==[ FireWall Config ]======================================================"
-curl http://artii.herokuapp.com/make?text=FireWall
-
+niceTitle "FireWall"
 
 sudo ufw status
 sudo ufw default allow
@@ -57,29 +54,36 @@ sudo ufw allow 'Nginx HTTP'
 sudo ufw --force enable
 sudo ufw status
 
+
+
 #
 # ngnix
 #
 
-echo ""
-echo "==[ nginx Config ]======================================================"
-curl http://artii.herokuapp.com/make?text=ngnix
+niceTitle "ngnix"
 
 sudo apt-get install nginx -y
 
 
+
+#
+# get IP
+#
+
 IP=$(curl http://checkip.amazonaws.com);
 
-echo "Server IP is $IP"
+echo ""
+echo "Server IP is $IP" 
 curl http://artii.herokuapp.com/make?text=$IP
+echo ""
 
 
 
 #
 # we need docker
 #
-echo "==[ Docker Install ]======================================================"
-curl http://artii.herokuapp.com/make?text=DOCKER
+
+niceTitle "docker"
 
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -88,50 +92,39 @@ sudo apt update
 apt-cache policy docker-ce
 sudo apt install docker-ce -y
 
-#
-# is docker installed ?
-#
-echo "==[ Docker Version ]======================================================"
-
+# print out docker version
+echo "----------------------------"
 docker --version
+echo "----------------------------"
 
 
 #
 # Download and Run docker run jupyter/pyspark-notebook
 #
 
-echo ""
-echo "==[ installing pyspark-notebook ]======================================================"
-curl http://artii.herokuapp.com/make?text=pyspark-noteboo
-echo ""
+niceTitle "pyspark-notebook"
 
 sudo docker run -d -p 8888:8888 jupyter/pyspark-notebook
-sudo docker ps -a
 
-
-
-echo ""
-echo "==[ getting docker ID ]======================================================"
-
+# get docket ID
 
 ID=$(sudo docker ps -a -q)
+echo "----------------------------"
 echo "Docker is is $ID"
-curl http://artii.herokuapp.com/make?text=$ID
+echo "----------------------------"
 
 
+niceTitle "READ ME"
 
-
-echo "==[ pyspark-notebook upgrade ]======================================================"
-
-echo "You need to install :"
+echo "You need to manually install inside the docker :"
+echo ""
 echo "pip install pyspark"
 echo "pip install findspark"
 echo "pop install helpers"
 
-
-echo "==[ login into pyspark-notebook  ]======================================================"
-
-echo  "docker exec -it $ID bash"
+echo ""
+echo "docker exec -it $ID bash"
+echo ""
 sudo docker exec -it $ID bash
 
 # pip install pyspark
@@ -139,10 +132,8 @@ sudo docker exec -it $ID bash
 # pop install helpers
 # conda install pyspark
 # conda install SparkSession
-
 # docker stop cf66ff4874b9
 # docker start cf66ff4874b9
-
 # http://54.171.92.149:8888/?token=99189e27e3f4a683d64fbf682efb3b6b14096db24c328d8d :: /home/jovyan
 #
 # Fire Wall Config (with ufw)
