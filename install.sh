@@ -32,7 +32,7 @@ echo ""
 # first, some basic update and upgrade
 #
 
-niceTitle "update"
+niceTitle "Update"
 
 sudo apt-get update -y
 
@@ -42,7 +42,7 @@ sudo apt-get update -y
 # Upgrade
 #
 
-niceTitle "upgrade"
+niceTitle "Upgrade"
 
 sudo apt-get upgrade -y
 
@@ -112,7 +112,7 @@ echo "----------------------------"
 # Cleaning previous docker install 
 #
 
-niceTitle "Cleaning memory"
+niceTitle "Cleaning+memory"
 
 sudo docker ps
 
