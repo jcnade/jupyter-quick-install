@@ -54,7 +54,6 @@ sudo apt-get upgrade -y
 
 niceTitle "FireWall"
 
-sudo ufw status
 sudo ufw default allow
 sudo ufw allow ssh
 sudo ufw allow www
@@ -91,19 +90,8 @@ echo ""
 
 
 
-#
-# we need docker
-#
 
 niceTitle "docker"
-
-# cleaning all previous install ()
-sudo docker stop $(sudo docker ps -a -q)
-sudo docker rm $(sudo docker ps -a -q)
-
-sudo docker stop $(sudo docker ps -a -q)
-sudo docker rm $(sudo docker ps -a -q)
-
 
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -119,11 +107,29 @@ echo "----------------------------"
 
 
 
+
 #
-#  jupyter/pyspark-notebook
+# Cleaning previous docker install 
 #
 
-niceTitle "pyspark-notebook"
+niceTitle "Cleaning memory"
+
+sudo docker ps
+
+# cleaning all previous install ()
+sudo docker stop $(sudo docker ps -a -q)
+sudo docker rm $(sudo docker ps -a -q)
+
+sudo docker stop $(sudo docker ps -a -q)
+sudo docker rm $(sudo docker ps -a -q)
+
+
+
+#
+# launching jupyter/pyspark-notebook
+#
+
+niceTitle "Lanching+pyspark+notebook"
 
 sudo docker run -d -p 8888:8888 jupyter/pyspark-notebook
 
