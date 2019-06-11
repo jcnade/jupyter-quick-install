@@ -1,4 +1,20 @@
 #!/bin/sh
+#
+# 2019 by JCN for SUPelect
+#
+
+#
+# function
+#
+
+niceTitle () {
+	TITLE=$1
+	echo ""
+	echo "==[ $TITLE ]======================================================"
+	curl http://artii.herokuapp.com/make?text=$TITLE
+	echo ""
+}
+
 
 
 curl http://artii.herokuapp.com/make?text=Jupyter+Quick+Install
@@ -8,9 +24,7 @@ echo ""
 # first, some basic update and upgrade
 #
 
-echo ""
-echo "==[ Update ]======================================================"
-curl http://artii.herokuapp.com/make?text=Update
+niceTitle("update")
 
 sudo apt-get update -y
 
@@ -19,11 +33,9 @@ sudo apt-get update -y
 # Upgrade
 #
 
-echo ""
-echo "==[ upgrade ]======================================================"
-http://artii.herokuapp.com/make?text=Upgrade
+niceTitle("upgrade")
 
- sudo apt-get upgrade -y
+sudo apt-get upgrade -y
 
 #
 # FireWall
@@ -88,13 +100,19 @@ docker --version
 # Download and Run docker run jupyter/pyspark-notebook
 #
 
+echo ""
 echo "==[ installing pyspark-notebook ]======================================================"
+curl http://artii.herokuapp.com/make?text=pyspark-noteboo
+echo ""
 
 sudo docker run -d -p 8888:8888 jupyter/pyspark-notebook
 sudo docker ps -a
 
 
+
+echo ""
 echo "==[ getting docker ID ]======================================================"
+
 
 ID=$(sudo docker ps -a -q)
 echo "Docker is is $ID"
