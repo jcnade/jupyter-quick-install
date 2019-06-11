@@ -13,6 +13,8 @@ Pour la préparation d'un TP universitaire en machine learning, je souhaite conf
 * une instance AWS avec un Ubuntu LTS 64bits (t2.medium)
 * un fichier .pem pour se connecter
 * un groupe de sécurité qui ouvre le port SSH, 80
+* on a besoin de pyspark
+
 
 ###  Installation 
 
