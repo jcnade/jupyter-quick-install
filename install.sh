@@ -85,6 +85,11 @@ echo ""
 
 niceTitle "docker"
 
+# cleaning all previous install ()
+sudo docker stop $(sudo docker ps -a -q)
+sudo docker rm $(sudo docker ps -a -q)
+
+
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
@@ -114,7 +119,7 @@ echo "Docker is is $ID"
 echo "----------------------------"
 
 
-niceTitle "READ ME"
+niceTitle "READ+ME"
 
 echo "You need to manually install inside the docker :"
 echo ""
@@ -123,7 +128,7 @@ echo "pip install findspark"
 echo "pop install helpers"
 
 echo ""
-echo "docker exec -it $ID bash"
+echo "sudo docker exec -it $ID bash"
 echo ""
 sudo docker exec -it $ID bash
 
