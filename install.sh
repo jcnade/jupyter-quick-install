@@ -13,6 +13,7 @@ niceTitle () {
 	echo "==[ $TITLE ]======================================================"
 	curl http://artii.herokuapp.com/make?text=$TITLE
 	echo ""
+	sleep 3
 }
 
 
