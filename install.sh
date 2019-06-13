@@ -96,7 +96,7 @@ echo ""
 # get Docker
 #
 
-niceTitle "docker"
+niceTitle "Docker"
 
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -117,7 +117,7 @@ echo "----------------------------"
 # Cleaning previous docker install 
 #
 
-niceTitle "Cleaning+memory"
+niceTitle "Cleaning+Memory"
 
 sudo docker ps
 
@@ -134,7 +134,7 @@ sudo docker rm $(sudo docker ps -a -q)
 # launching jupyter/pyspark-notebook
 #
 
-niceTitle "Lanching+pyspark+notebook"
+niceTitle "Lanching+Pyspark+Notebook"
 
 sudo docker run -d -p 8888:8888 jupyter/pyspark-notebook
 
@@ -193,21 +193,20 @@ echo "===================================="
 niceTitle "READ+ME"
 
 echo ""
-echo "You need to manually install inside the docker :"
+echo "You need to manually install more package inside the docker :"
 echo ""
-echo "login as user"
+echo "*** Login as user:"
 echo "> sudo docker exec -it $ID bash"
 echo ""
-echo "login as root:"
+echo "*** Login as root:"
 echo "> sudo docker exec -u 0 -it $ID bash"
 echo ""
-echo "package to install:"
+echo "*** Exemple:"
 echo "> pip install pyspark"
 echo "> pip install findspark"
 echo "> pip install helpers"
-echo ">exit"
+echo "> exit"
 echo ""
-
 
 
 
